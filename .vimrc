@@ -3,7 +3,6 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
  " set the runtime path to include Vundle and initialize
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin() 
 
@@ -12,32 +11,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required 
 Plugin 'VundleVim/Vundle.vim'  
-
-" The following are examples of different formats supported. 
-" Keep Plugin commands between vundle#begin/end. 
-" plugin on GitHub repo 
 Plugin 'tpope/vim-fugitive' 
-
-" plugin from http://vim-scripts.org/vim/scripts.html 
 Plugin 'L9' 
-
-" Git plugin not hosted on GitHub 
-"Plugin 'git://git.wincent.com/command-t.git' 
-
-" git repos on your local machine (i.e. when working on your own plugin) 
-"Plugin 'file:///home/gmarik/path/to/plugin' 
-"Plugin 'severin-lemaignan/vim-minimap'
-" The sparkup vim script is in a subdirectory of this repo called vim. 
-" Pass the path to set the runtimepath properly. 
-
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} 
-" Install L9 and avoid a Naming conflict if you've already installed a 
-" different version somewhere else. 
-
-"Plugin 'ascenator/L9', {'name': 'newL9'}  
-" All of your Plugins must be added before the following line 
-
-
 " Plugin 'myusuf3/numbers.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
@@ -47,7 +22,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'joonty/vdebug'
 Plugin 'othree/vim-autocomplpop'
 "Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 
+" All of your Plugins must be added before the following line 
 call vundle#end()            " required 
 
 filetype plugin indent on    " required 
@@ -66,8 +43,8 @@ filetype plugin indent on    " required
 
 autocmd VimEnter * Minimap
 "autocmd vimenter * NERDTree
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 syntax enable 
 
@@ -80,6 +57,7 @@ syntax enable
 
 let g:airline_theme = "solarized"
 let g:NERDTreeDirArrows=0
+let NERDTreeShowHidden=1
 let g:airline_powerline_fonts = 1
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -101,6 +79,8 @@ inoremap <expr> <CR> pumvisible()? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+map <C-n> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 "set Minimap
 "set shortmess=Ot
 "set cmdheight=2
