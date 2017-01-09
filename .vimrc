@@ -23,9 +23,13 @@ Plugin 'joonty/vdebug'
 Plugin 'othree/vim-autocomplpop'
 "Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'blueyed/vim-diminactive'
 
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
+
+let g:diminactive_enable_focus = 1
+autocmd VimEnter * DimInactive
 
 filetype plugin indent on    " required 
 
