@@ -24,14 +24,47 @@ Plugin 'othree/vim-autocomplpop'
 "Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'blueyed/vim-diminactive'
+Plugin 'vim-syntastic/syntastic'
+"Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
+
 
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
 
 let g:diminactive_enable_focus = 1
 autocmd VimEnter * DimInactive
+:hi ColorColumn ctermbg=2 guibg=#004980
+let g:diminactive_use_syntax = 1
+
+"let g:indent_guides_e_vim_startup = 0
+
+let g:indentLine_color_term = 4 
+
+" dsf
+  " dsf
+    " sdf
+  " sfad
+" asdf
+"
 
 filetype plugin indent on    " required 
+
+
+" Set the php syntax checkers for syntastic
+let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
+
+" More syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
 
 " To ignore plugin indent changes, instead use: 
 "filetype plugin on 
@@ -50,6 +83,13 @@ autocmd VimEnter * Minimap
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+nnoremap // :noh<return><esc>
+set cursorline
+"hi clear CursorLine
+hi CursorLine cterm=underline
+"hi Cursor ctermfg=4 ctermbg=7 cterm=bold
+
+hi Comment ctermbg=black ctermfg=2
 syntax enable 
 
 "colorscheme "base16"
@@ -77,6 +117,7 @@ set smartindent
 set autoindent
 set expandtab
 set colorcolumn=80
+set hlsearch
 set nu
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible()? "\<C-y>" : "\<C-g>u\<CR>"
