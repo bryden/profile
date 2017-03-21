@@ -27,14 +27,18 @@ Plugin 'blueyed/vim-diminactive'
 Plugin 'vim-syntastic/syntastic'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
-Plugin 'alessandroyorba/monrovia'
 Plugin 'rhysd/vim-color-spring-night'
+Plugin 'Blevs/vim-dzo'
+Plugin 'easysid/mod8.vim'
+Plugin 'AlessandroYorba/Alduin'
+Plugin 'marcopaganini/termschool-vim-theme'
+
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
 
 syntax enable
 set background=dark
-colorscheme spring-night
+colorscheme alduin
 
 let g:diminactive_enable_focus = 1
 autocmd VimEnter * DimInactive
@@ -43,7 +47,7 @@ let g:diminactive_use_syntax = 1
 
 "let g:indent_guides_e_vim_startup = 0
 
-"let g:indentLine_color_term = 4 
+let g:indentLine_color_term = 4 
 
 " dsf
   " dsf
