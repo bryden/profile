@@ -27,19 +27,23 @@ Plugin 'blueyed/vim-diminactive'
 Plugin 'vim-syntastic/syntastic'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
-
-
+Plugin 'alessandroyorba/monrovia'
+Plugin 'rhysd/vim-color-spring-night'
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
 
+syntax enable
+set background=dark
+colorscheme spring-night
+
 let g:diminactive_enable_focus = 1
 autocmd VimEnter * DimInactive
-:hi ColorColumn ctermbg=2 guibg=#004980
+":hi ColorColumn ctermbg=2 guibg=#004980
 let g:diminactive_use_syntax = 1
 
 "let g:indent_guides_e_vim_startup = 0
 
-let g:indentLine_color_term = 4 
+"let g:indentLine_color_term = 4 
 
 " dsf
   " dsf
@@ -49,7 +53,6 @@ let g:indentLine_color_term = 4
 "
 
 filetype plugin indent on    " required 
-
 
 " Set the php syntax checkers for syntastic
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
@@ -89,7 +92,7 @@ set cursorline
 hi CursorLine cterm=underline
 "hi Cursor ctermfg=4 ctermbg=7 cterm=bold
 
-hi Comment ctermbg=black ctermfg=2
+"hi Comment ctermbg=black ctermfg=2
 syntax enable 
 
 "colorscheme "base16"
@@ -99,7 +102,7 @@ syntax enable
 "endif 
 
 
-let g:airline_theme = "solarized"
+let g:airline_theme = "spring_night"
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
 let g:airline_powerline_fonts = 1
@@ -110,7 +113,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 
 set encoding=utf-8
-set mouse=a
+"set mouse=a
 set tabstop=2
 set shiftwidth=2
 set smartindent
@@ -131,3 +134,7 @@ nmap <F8> :TagbarToggle<CR>
 "set cmdheight=2
 "set background=dark
 "set t_Co=256
+
+if &diff
+    colorscheme evening
+endif
