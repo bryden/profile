@@ -32,6 +32,9 @@ Plugin 'Blevs/vim-dzo'
 Plugin 'easysid/mod8.vim'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'marcopaganini/termschool-vim-theme'
+Plugin 'vim-scripts/CountJump'
+Plugin 'vim-scripts/ingo-library'
+Plugin 'vim-scripts/ConflictMotions'
 
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
