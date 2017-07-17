@@ -10,32 +10,35 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')  
 
 " let Vundle manage Vundle, required 
-Plugin 'VundleVim/Vundle.vim'  
-Plugin 'tpope/vim-fugitive' 
-Plugin 'L9' 
-" Plugin 'myusuf3/numbers.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'joonty/vdebug'
-Plugin 'othree/vim-autocomplpop'
-"Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'blueyed/vim-diminactive'
-Plugin 'vim-syntastic/syntastic'
-"Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Yggdroot/indentLine'
-Plugin 'rhysd/vim-color-spring-night'
-Plugin 'Blevs/vim-dzo'
-Plugin 'easysid/mod8.vim'
-Plugin 'AlessandroYorba/Alduin'
-Plugin 'marcopaganini/termschool-vim-theme'
-Plugin 'vim-scripts/CountJump'
-Plugin 'vim-scripts/ingo-library'
-Plugin 'vim-scripts/ConflictMotions'
+Plugin 'VundleVim/Vundle.vim'                     "Vundle, the plug-in manager for Vim
+Plugin 'tpope/vim-fugitive'                       "fugitive.vim: a Git wrapper so awesome, it should be illegal
+Plugin 'L9'                                       "Vim-script library
+Plugin 'scrooloose/nerdtree'                      "A tree explorer plugin for vim.
+Plugin 'severin-lemaignan/vim-minimap'            "A Sublime-like minimap for VIM, based on the Drawille console-based drawing library
+Plugin 'vim-airline/vim-airline'                  "lean & mean status/tabline for vim that's light as air
+Plugin 'vim-airline/vim-airline-themes'           "A collection of themes for vim-airline
+Plugin 'joonty/vdebug'                            "Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
+Plugin 'othree/vim-autocomplpop'                  "Automatically opens popup menu for completions
+Plugin 'majutsushi/tagbar'                        "Vim plugin that displays tags in a window, ordered by scope
+Plugin 'blueyed/vim-diminactive'                  "Vim plugin to dim inactive windows
+Plugin 'vim-syntastic/syntastic'                  "Syntax checking hacks for vim
+Plugin 'Yggdroot/indentLine'                      "A vim plugin to display the indention levels with thin vertical lines
+Plugin 'AlessandroYorba/Alduin'                   "the best vim theme there is
+Plugin 'vim-scripts/CountJump'                    "Count number of matches of a pattern
+Plugin 'vim-scripts/ingo-library'                 "Vimscript library of common functions
+Plugin 'vim-scripts/ConflictMotions'              "Motions to and inside SCM conflict markers
+Plugin 'vim-scripts/yaml.vim'                     "yaml syntax coloring script
+Plugin 'shmay/vim-yaml'                           "Syntax coloring and functions for YAML
+Plugin 'rhysd/vim-color-spring-night'             "Calm spring color scheme for Vim
+Plugin 'lumiliet/vim-twig'                        "Twig syntax highlighting, snipMate, etc.
 
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'Blevs/vim-dzo'
+"Plugin 'altercation/vim-colors-solarized' 
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'easysid/mod8.vim'
+
+"Plugin 'marcopaganini/termschool-vim-theme'
 " All of your Plugins must be added before the following line 
 call vundle#end()            " required 
 
@@ -46,11 +49,11 @@ colorscheme alduin
 let g:diminactive_enable_focus = 1
 autocmd VimEnter * DimInactive
 ":hi ColorColumn ctermbg=2 guibg=#004980
-let g:diminactive_use_syntax = 1
+"let g:diminactive_use_syntax = 1
 
 "let g:indent_guides_e_vim_startup = 0
 
-let g:indentLine_color_term = 4 
+let g:indentLine_color_term = 7 
 
 " dsf
   " dsf
@@ -108,17 +111,18 @@ syntax enable
 "  let g:airline_symbols = {} 
 "endif 
 
-
 let g:airline_theme = "spring_night"
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
 let g:airline_powerline_fonts = 1
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
-"let g:minimap_highlight='Visual'  "changes the highlight colours
+let g:minimap_highlight='SpecialComment'  "changes the highlight colours
 "let g:airline_symbols.space = "\ua0"
+let g:PHP_vintage_case_default_indent = 1 "fix the php switch statement indentations
+let g:easytags_async=1
 
-
+"set tags=tags;/ "find the closest tagfile
 set encoding=utf-8
 "set mouse=a
 set tabstop=2
@@ -146,6 +150,8 @@ nmap <F8> :TagbarToggle<CR>
 "set background=dark
 "set t_Co=256
 
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/yaml.vim/colors/yaml.vim " yaml syntax highlighting (plugin vim-scripts/yaml.vim)
+
 if &diff
-    colorscheme evening
+    colorscheme alduin
 endif
