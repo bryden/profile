@@ -4,12 +4,12 @@ filetype off                  " required
 
  " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin() 
+call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins 
-"call vundle#begin('~/some/path/here')  
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required 
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'                     "Vundle, the plug-in manager for Vim
 Plugin 'tpope/vim-fugitive'                       "fugitive.vim: a Git wrapper so awesome, it should be illegal
 Plugin 'L9'                                       "Vim-script library
@@ -34,13 +34,13 @@ Plugin 'lumiliet/vim-twig'                        "Twig syntax highlighting, sni
 
 "Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'Blevs/vim-dzo'
-"Plugin 'altercation/vim-colors-solarized' 
+"Plugin 'altercation/vim-colors-solarized'
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'easysid/mod8.vim'
 
 "Plugin 'marcopaganini/termschool-vim-theme'
-" All of your Plugins must be added before the following line 
-call vundle#end()            " required 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 syntax enable
 set background=dark
@@ -53,7 +53,7 @@ autocmd VimEnter * DimInactive
 
 "let g:indent_guides_e_vim_startup = 0
 
-let g:indentLine_color_term = 7 
+let g:indentLine_color_term = 7
 
 " dsf
   " dsf
@@ -62,7 +62,7 @@ let g:indentLine_color_term = 7
 " asdf
 "
 
-filetype plugin indent on    " required 
+filetype plugin indent on    " required
 
 " Set the php syntax checkers for syntastic
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
@@ -79,16 +79,16 @@ let g:syntastic_check_on_wq = 0
 
 
 
-" To ignore plugin indent changes, instead use: 
-"filetype plugin on 
-" 
-" Brief help 
-" :PluginList       - lists configured plugins 
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate 
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache 
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal 
-" 
-" see :h vundle for more details or wiki for FAQ 
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 autocmd VimEnter * Minimap
@@ -103,18 +103,23 @@ hi CursorLine cterm=underline
 "hi Cursor ctermfg=4 ctermbg=7 cterm=bold
 
 "hi Comment ctermbg=black ctermfg=2
-syntax enable 
+syntax enable
 
 "colorscheme "base16"
 
 "if !exists('g:airline_symbols')
-"  let g:airline_symbols = {} 
-"endif 
+"  let g:airline_symbols = {}
+"endif
 
 let g:airline_theme = "spring_night"
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 let g:NERDTreeDirArrows=0
 let NERDTreeShowHidden=1
-let g:airline_powerline_fonts = 1
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:minimap_highlight='SpecialComment'  "changes the highlight colours
@@ -140,7 +145,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 
 
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
-map <F3> :source ~/.vim_session <cr> " Quick open session with F3 
+map <F3> :source ~/.vim_session <cr> " Quick open session with F3
 
 map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
