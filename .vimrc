@@ -13,10 +13,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'                     "Vundle, the plug-in manager for Vim
 Plugin 'tpope/vim-fugitive'                       "fugitive.vim: a Git wrapper so awesome, it should be illegal
 Plugin 'L9'                                       "Vim-script library
-"Plugin 'scrooloose/nerdtree'                      "A tree explorer plugin for vim.
+Plugin 'scrooloose/nerdtree'                      "A tree explorer plugin for vim.
+Plugin 'ryanoasis/vim-devicons'                   "Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more
 "Plugin 'severin-lemaignan/vim-minimap'            "A Sublime-like minimap for VIM, based on the Drawille console-based drawing library
 Plugin 'vim-airline/vim-airline'                  "lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline-themes'           "A collection of themes for vim-airline
+Plugin 'junegunn/limelight.vim'                   "Hyperfocus-writing in Vim.
 Plugin 'joonty/vdebug'                            "Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 Plugin 'othree/vim-autocomplpop'                  "Automatically opens popup menu for completions
 Plugin 'majutsushi/tagbar'                        "Vim plugin that displays tags in a window, ordered by scope
@@ -37,6 +39,15 @@ Plugin 'https://github.com/airblade/vim-gitgutter.git' "A Vim plugin which shows
 Plugin 'junegunn/gv.vim'                          "A git commit browser.
 Plugin 'mileszs/ack.vim'                          "Vim plugin for the Perl module / CLI script 'ack'
 Plugin 'vim-scripts/taglist.vim'                  "Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) http://www.vim.org/scripts/script.php
+Plugin 'phpvim/phpcd.vim'                         "A Intelligent/Smart PHP Complete Daemon Plugin for Vim/NeoVim
+"Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+Plugin 'gavocanov/vim-js-indent'
+
+"Show the folder icon in NERDTree
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:easytags_async=1
+let g:easytags_auto_highlight=0
 
 "Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'Blevs/vim-dzo'
@@ -51,6 +62,13 @@ call vundle#end()            " required
 syntax enable
 set background=dark
 colorscheme alduin
+
+
+" Color name (:help cterm-colors) or ANSI code
+" Limelight settings
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+noremap <c-a> :Limelight!!<CR>
 
 let g:diminactive_enable_focus = 1
 autocmd VimEnter * DimInactive
@@ -102,6 +120,13 @@ let g:syntastic_check_on_wq = 0
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+"Remap keys for opening and closing NERDtree
+noremap <c-x> :NERDTreeFind<CR>
+noremap <c-\> :NERDTreeToggle<CR>
+
+let g:NERDTreeMapActivateNode="<c-x>"
+let g:NERDTreeMapPreview="<c-p>"
+
 nnoremap // :noh<return><esc>
 set cursorline
 "hi clear CursorLine
@@ -139,9 +164,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:PHP_vintage_case_default_indent = 1 "fix the php switch statement indentations
 let g:easytags_async=1
 
-"set tags=tags;/ "find the closest tagfile
+
 set encoding=utf-8
-"set mouse=a
 set tabstop=2
 set shiftwidth=2
 set smartindent
@@ -161,7 +185,17 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr> " Quick open session with F3
 
-nmap <F8> :TagbarToggle<CR>
+" Navigate through windows easier
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+
+" Set splits to open below and to the right
+set splitbelow
+set splitright
+
+nmap <c-t> :TagbarOpenAutoClose<CR>
 "set Minimap
 "set shortmess=Ot
 "set cmdheight=2
