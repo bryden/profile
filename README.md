@@ -8,3 +8,4 @@ Manual steps that need to be automated
 #. sudo apt install -y vim
 #. sudo apt-get install fonts-powerline
 #. git clone https://github.com/ryanoasis/nerd-fonts.git ~/profile/fonts/
+#. git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
