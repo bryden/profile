@@ -43,6 +43,36 @@ Plugin 'phpvim/phpcd.vim'                         "A Intelligent/Smart PHP Compl
 "Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'gavocanov/vim-js-indent'
+Plugin 'vim-scripts/ScrollColors'                 "Colorsheme Scroller, Chooser, and Browser http://www.vim.org/scripts/script.php…
+
+
+"Alternative themes
+Plugin 'JarrodCTaylor/spartan' "inactive window annoyingly red
+Plugin 'encody/nvim'
+Plugin 'AlessandroYorba/Despacio' "really good
+Plugin 'sherifkandeel/vim-colors'
+Plugin 'raphamorim/lucario'
+Plugin 'YorickPeterse/happy_hacking.vim' "very good, workable
+Plugin 'kristijanhusak/vim-hybrid-material' "ok
+Plugin 'juanedi/predawn.vim' "ok
+Plugin 'easysid/mod8.vim' "garbage
+Plugin 'KKPMW/moonshine-vim' "not great
+Plugin 'geetarista/ego.vim' "could be adapted
+Plugin 'mhartington/oceanic-next' "could be adapted
+Plugin 'marcopaganini/termschool-vim-theme' "meh
+Plugin 'w0ng/vim-hybrid' "meh
+Plugin 'tlhr/anderson.vim' "garbage
+Plugin 'dylanaraps/crayon'
+Plugin 'xero/sourcerer.vim' "meh
+Plugin 'jefflund/colorschemer'
+Plugin 'kreeger/benlight'
+Plugin 'jordwalke/flatlandia'
+Plugin 'baverman/vim-babymate256' "nope
+Plugin 'chriskempson/vim-tomorrow-theme' "good
+Plugin 'antlypls/vim-colors-codeschool' "no
+Plugin 'jnurmine/Zenburn' "no
+
+
 
 "Show the folder icon in NERDTree
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -220,6 +250,7 @@ let g:vdebug_options = {
 " \ }
 " https://devforgalaxy.github.io/en/2016/09/14/debug-containerised-php-app-using-xdebug-with-vim-and-vdebug-en.html
 hi MatchParen cterm=bold ctermbg=3 ctermfg=gray
+hi Normal guibg=NONE ctermbg=NONE
 
 if &diff
     colorscheme alduin
